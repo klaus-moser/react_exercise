@@ -8,25 +8,33 @@ const App = () => {
   const [tasks, setTasks] = useState(
     [{
       id: 1,
-      text: 'asdf',
-      day: ' Feb 123',
+      text: 'aaaaa',
+      day: ' Jan 111',
       reminder: true,
     },
-      {
-        id: 2,
-        text: 'fffff',
-        day: ' Feb 666',
-        reminder: false,
-      }])
+    {
+      id: 2,
+      text: 'bbbbb',
+      day: ' Jun 666',
+      reminder: false,
+    },
+    {
+      id: 3,
+      text: 'ccccc',
+      day: ' Dec 121212',
+      reminder: false,
+    }
+    ])
   
   const deleteTask = (id) => {
-    console.log('delete', id)
+    setTasks(tasks.filter((task) => task.id !== id))
   }
 
   return (
     <div className="container">
       <Header />
-      <Tasks tasks={tasks} onDelete={deleteTask}/>
+      {tasks.length > 0 ? 
+      <Tasks tasks={tasks} onDelete={deleteTask}/> : 'No Tasks to show!'}
     </div>
   );
 }
